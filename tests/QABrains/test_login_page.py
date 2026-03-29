@@ -1,7 +1,8 @@
 from pages.QABrains.login import LoginPage
-from test_data.QABrains.test_data import test_data 
+from test_data.QABrains.test_data import test_data
 
-def test_login_into_account(page):  
+
+def test_login_into_account(page):
     login = LoginPage(page)
 
     # ---------------- Step 1: Open login page ----------------
