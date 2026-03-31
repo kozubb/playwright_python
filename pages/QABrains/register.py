@@ -19,7 +19,7 @@ class RegisterPage:
             "heading", name="registration successful"
         )
 
-    # Actions
+    # region Actions
 
     def open_register_page(self, endpoint):
         self.page.goto(f"{endpoint}registration")
@@ -35,7 +35,11 @@ class RegisterPage:
     def submit_form(self):
         self.signup_button.click()
 
-    # Validations
+    # end region
+
+    # region Validations
 
     def validate_registration_success(self, expected_text):
         expect(self.success_message).to_have_text(expected_text)
+
+    # end region

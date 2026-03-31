@@ -12,7 +12,7 @@ class LoginPage:
         self.password_input = page.get_by_role("textbox", name="password")
         self.success_message = page.get_by_role("heading", name="login successful")
 
-    # ---------------- Actions ----------------
+    # region Actions
 
     def fill_email(self, email: str) -> None:
         self.email_input.fill(email)
@@ -26,7 +26,9 @@ class LoginPage:
     def press_logout_button(self) -> None:
         self.logout_button.click()
 
-    # ---------------- Validations ----------------
+    # end region
+
+    # region Validations
 
     def validate_login_success_message(self, expected_text: str) -> None:
         expect(self.success_message).to_have_text(expected_text)
@@ -36,3 +38,5 @@ class LoginPage:
 
     def validate_logout_button_visible(self) -> None:
         expect(self.logout_button).to_be_visible()
+
+    # end region
