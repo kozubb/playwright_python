@@ -1,0 +1,48 @@
+name: Run Playwright Python tests
+
+permissions:
+  contents: read
+  checks: write
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-playwright playwright
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          playwright install --with-deps
+
+      - name: Run tests (generate report)
+        run: |
+          pytest tests --junitxml=report.xml || true
+
+      - name: Debug files (VERY IMPORTANT)
+        run: |
+          echo "==== FILES ===="
+          ls -R
+          echo "==== REPORT ===="
+          cat report.xml || echo "NO REPORT FILE"
+
+      - name: Publish results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Pytest Results
+          path: report.xml
+          reporter: java-junit
