@@ -28,21 +28,14 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           playwright install --with-deps
 
-      - name: Run tests (generate report)
+      - name: Run tests 
         run: |
-          pytest tests --junitxml=report.xml || true
-
-      - name: Debug files (VERY IMPORTANT)
-        run: |
-          echo "==== FILES ===="
-          ls -R
-          echo "==== REPORT ===="
-          cat report.xml || echo "NO REPORT FILE"
+          pytest tests --headed=false --junitxml=report.xml || true
 
       - name: Publish results
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: Pytest Results
+          name: Tests Results
           path: report.xml
           reporter: java-junit
