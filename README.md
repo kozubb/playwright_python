@@ -4,6 +4,9 @@
 
 This project demonstrates an end-to-end (E2E) testing framework using **Playwright** with **Python**. It includes automated tests for:
 
+- **Frontend testing**: login, registration, and product purchase process.
+- **API testing**: testing GET, POST, PUT, and DELETE requests.
+
 ---
 
 ## Key Features
@@ -15,6 +18,10 @@ This project demonstrates an end-to-end (E2E) testing framework using **Playwrig
    - Includes login, registration, and product purchase flows.
    - Implemented using **Page Object Pattern** for maintainability and clarity.
 
+### API Tests
+
+- GET, POST, PUT, and DELETE requests
+
 ## Test Strategy
 
 The project follows a balanced testing pyramid approach.
@@ -25,6 +32,12 @@ The project follows a balanced testing pyramid approach.
 - Validate real UI behavior from an end-user perspective
 - Avoid over-testing UI details
 - Written with stability and readability in mind
+
+### API Tests
+
+- Faster and more reliable than UI tests
+- Used to validate backend logic independently
+- Reduce the need for excessive E2E coverage
 
 ---
 
