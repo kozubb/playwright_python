@@ -29,8 +29,10 @@ jobs:
           playwright install --with-deps
 
       - name: Run tests 
-        run: |
-          pytest tests --headed=false --junitxml=report.xml || true
+        run: pytest tests --junitxml=report.xml || true
+        env:
+          CI: "true"
+          PWDEBUG: "0"
 
       - name: Publish results
         uses: dorny/test-reporter@v1
