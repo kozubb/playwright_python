@@ -6,6 +6,7 @@ This project demonstrates an end-to-end (E2E) testing framework using **Playwrig
 
 - **Frontend testing**: login, registration, and product purchase process.
 - **API testing**: testing GET, POST, PUT, and DELETE requests.
+- **CI/CD pipeline**: integrated fully with **GitHub Actions**, including test execution and reporting.
 
 ---
 
@@ -21,6 +22,15 @@ This project demonstrates an end-to-end (E2E) testing framework using **Playwrig
 ### API Tests
 
 - GET, POST, PUT, and DELETE requests
+
+### CI/CD with GitHub Actions
+
+- **Automated Workflow**: Full integration of Playwright tests triggered on every push and manually on demand.
+  - **Direct Summary**: Test results are visible directly in the GitHub Actions summary for quick feedback.
+
+### Test Documentation
+
+- Detailed comments in the test code for easy understanding of the test flow, especially for non-technical people.
 
 ## Test Strategy
 
