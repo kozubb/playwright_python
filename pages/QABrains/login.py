@@ -14,29 +14,29 @@ class LoginPage:
 
     # region Actions
 
-    def fill_email(self, email: str) -> None:
+    def fill_email(self, email):
         self.email_input.fill(email)
 
-    def fill_password(self, password: str) -> None:
+    def fill_password(self, password):
         self.password_input.fill(password)
 
-    def press_login_button(self) -> None:
+    def press_login_button(self):
         self.login_button.click()
 
-    def press_logout_button(self) -> None:
+    def press_logout_button(self):
         self.logout_button.click()
 
     # end region
 
     # region Validations
 
-    def validate_login_success_message(self, expected_text: str) -> None:
+    def validate_login_success_message(self, expected_text):
         expect(self.success_message).to_have_text(expected_text)
 
-    def validate_login_button_visible(self) -> None:
+    def validate_login_button_visible(self):
         expect(self.login_button).to_be_visible()
 
-    def validate_logout_button_visible(self) -> None:
+    def validate_logout_button_visible(self):
         expect(self.logout_button).to_be_visible()
 
     # end region
