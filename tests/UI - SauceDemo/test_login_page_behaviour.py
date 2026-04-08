@@ -32,3 +32,43 @@ def test_login_and_logout_success(page):
     # Step 7: Verify return to login page
     page.wait_for_url(f'{test_data["Endpoint"]}')
     login.validate_if_login_button_is_visible()
+
+
+# E2E test: Login with wrong password
+def test_login_wrong_password(page):
+    # Step 1: Initialize page objects
+    login = LoginPage(page)
+    # Step 2: Navigate to the login page
+
+    page.goto(test_data["Endpoint"])
+
+    # Step 3: Fill in the login form with username and incorrect password
+    login.fill_input("username", test_data["Users"]["StandardUser"]["Username"])
+    login.fill_input(
+        "password", test_data["Users"]["StandardUser"]["IncorrectPassword"]
+    )
+
+    # Step 4: Press the login button
+    login.press_login_button()
+
+    # Step 5: Verify error message for wrong credentials
+    login.validate_login_error_message(test_data["Messages"]["WrongDataMessage"])
+
+
+# E2E test: Login with locked-out user
+def test_login_user_locked(page):
+    # Step 1: Initialize page objects
+    login = LoginPage(page)
+
+    # Step 2: Navigate to the login page
+    page.goto(test_data["Endpoint"])
+
+    # Step 3: Fill in the login form with locked-out username
+    login.fill_input("username", test_data["Users"]["LockedUser"]["Username"])
+    login.fill_input("password", test_data["Users"]["LockedUser"]["Password"])
+
+    # Step 4: Press the login button
+    login.press_login_button()
+
+    # Step 5: Verify error message for locked user
+    login.validate_login_error_message(test_data["Messages"]["LockedUserMessage"])

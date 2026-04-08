@@ -34,7 +34,7 @@ test_data = {
     },
     "Messages": {
         "WrongDataMessage": "Username and password do not match any user in this service",
-        "LockedUserMessage": "Sorry this user has been locked out.",
+        "LockedUserMessage": "Sorry, this user has been locked out.",
         "ThankYouMessage": "Thank you for your order!",
     },
     "CheckoutForm": {
