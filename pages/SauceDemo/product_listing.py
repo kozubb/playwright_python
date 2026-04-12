@@ -62,7 +62,7 @@ class ProductListing:
         expect(self.remove_product_button(product_name)).to_be_visible()
 
     # Check shopping cart amount
-    def validateShoppingCartAmount(self, expected_number):
+    def validate_shopping_cart_amount(self, expected_number):
         expect(self.shopping_cart_amount).to_have_text(expected_number)
 
     # endregion

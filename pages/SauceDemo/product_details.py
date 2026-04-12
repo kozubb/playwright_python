@@ -45,7 +45,7 @@ class ProductDetails:
         helpers.price_validator(price_text, expected_price, currency_symbol)
 
     # Validate if "Remove" button is visible
-    def validate_if_remove_buttonIsVisible(self):
+    def validate_if_remove_button_is_visible(self):
         expect(self.remove_button).to_be_visible()
 
     # endregion
