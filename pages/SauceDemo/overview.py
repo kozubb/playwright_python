@@ -36,13 +36,13 @@ class Overview:
     def validate_subtotal(self, expected_price, currency, page):
         helpers = Helpers(page)
         subtotal_price_text = self.subtotal_price.text_content()
-        helpers.price(subtotal_price_text, expected_price, currency)
+        helpers.price_validator(subtotal_price_text, expected_price, currency)
         return self
 
     # Validate total price, check currency
     def validate_total_price(self, expected_price, currencySymbol, page):
         helpers = Helpers(page)
-        total_price_text = self.total_price.textContent()
+        total_price_text = self.total_price.text_content()
 
         helpers.price_validator(total_price_text, expected_price, currencySymbol)
         return self
