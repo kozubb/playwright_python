@@ -51,7 +51,7 @@ def get_user_token():
 
 def test_provide_rating():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context()
 
         # 1. Add cookie
