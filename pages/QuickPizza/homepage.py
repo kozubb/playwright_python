@@ -31,11 +31,10 @@ class Homepage:
 
     # Check if 'no thanks' button is visible on the page
     def validate_if_no_thanks_is_visible(self):
-        no_thanks_button_visibility = self.no_thanks_button.is_visible()
-        expect(no_thanks_button_visibility).to_be_ok()
+        expect(self.no_thanks_button).to_be_visible()
 
     # Check message after rating
-    def validateRatingMessage(self, expected_text):
-        expect(self.rating_message).not_to_have_text(expected_text)
+    def validate_rating_message(self, expected_text):
+        expect(self.rating_message).to_have_text(expected_text)
 
     # #endregion
