@@ -17,10 +17,6 @@ def get_user_token():
     # 1. Request CSRF token from the server
     csrf_response = session.post(f'{test_data["Endpoint"]}api/csrf-token')
 
-    # DEBUG (ważne przy Twoim API)
-    print("CSRF headers:", csrf_response.headers)
-    print("CSRF cookies:", session.cookies.get_dict())
-
     # 2. Extract CSRF token from Set-Cookie header
     csrf_token = session.cookies.get("csrf_token")
 
@@ -46,7 +42,7 @@ def get_user_token():
     user_token = login_response.json().get("token")
 
     if not user_token:
-        raise ValueError(f"Brak tokena w response: {login_response.text}")
+        raise ValueError(f"No token in response: {login_response.text}")
 
 
 def test_provide_rating():
